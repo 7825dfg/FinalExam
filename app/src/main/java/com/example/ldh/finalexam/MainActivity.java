@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.Chronometer;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,14 +25,17 @@ public class MainActivity extends AppCompatActivity {
     Switch switch1;
     LinearLayout LL1, LL2;
     Chronometer Cmeter;
-    RadioGroup radioGroup;
+    RadioGroup radioGroup, radioGroup2;
     RadioButton rb1, rb2, rb3;
     ImageView imageView;
     EditText editText1, editText2, editText3;
     TextView tview1, tview2, tview3;
+    TimePicker timePicker;
+    CalendarView calendarView;
     String num1, num2, num3;
     double result, total;
     int count;
+    int ryear, rmonth,rday;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,21 +47,28 @@ public class MainActivity extends AppCompatActivity {
         LL2 = (LinearLayout)findViewById(R.id.LL2);
         Cmeter = (Chronometer)findViewById(R.id.chronometer);
         radioGroup = (RadioGroup)findViewById(R.id.RadioGroup);
+        radioGroup2 = (RadioGroup)findViewById(R.id.RadioGroup2);
         imageView = (ImageView)findViewById(R.id.imageView);
         editText1 = (EditText)findViewById(R.id.editText1);
         editText2 = (EditText)findViewById(R.id.editText2);
         editText3 = (EditText)findViewById(R.id.editText3);
         btn1 = (Button)findViewById(R.id.button1);
         btn2 = (Button)findViewById(R.id.button2);
+        btn3 = (Button)findViewById(R.id.button3);
+        btn4 = (Button)findViewById(R.id.button4);
         rb1 = (RadioButton)findViewById(R.id.radioButton);
         rb2 = (RadioButton)findViewById(R.id.radioButton2);
         rb3 = (RadioButton)findViewById(R.id.radioButton3);
         tview1 = (TextView)findViewById(R.id.tView5);
         tview2 = (TextView)findViewById(R.id.tView6);
         tview3 = (TextView)findViewById(R.id.tView7);
+        calendarView = (CalendarView)findViewById(R.id.calendarView);
+        timePicker = (TimePicker)findViewById(R.id.timePicker);
 
         LL1.setVisibility(View.INVISIBLE);
         LL2.setVisibility(View.INVISIBLE);
+        timePicker.setVisibility(View.INVISIBLE);
+
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -72,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     Cmeter.stop();
                     Cmeter.setTextColor(Color.BLACK);
                     LL1.setVisibility(View.INVISIBLE);
+                    LL2.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -122,5 +135,44 @@ public class MainActivity extends AppCompatActivity {
                 tview3.setText(String.format("결제금액 : %.0f", total));
             }
         });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LL1.setVisibility(View.INVISIBLE);
+                LL2.setVisibility(View.VISIBLE);
+            }
+        });
+
+        radioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (group.getId() == R.id.RadioGroup2) {
+                    switch (checkedId) {
+                        case R.id.radioButton4:
+                            calendarView.setVisibility(View.VISIBLE);
+                            timePicker.setVisibility(View.INVISIBLE);
+                            break;
+                        case R.id.radioButton5:
+                            calendarView.setVisibility(View.INVISIBLE);
+                            timePicker.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                ryear= year;
+                rmonth = month;
+                rday = dayOfMonth;
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), ryear+" 년"+rmonth+" 월"+rday+" 일"+timePicker.getCurrentHour()+"시 "+timePicker.getCurrentMinute()+"분 예약완료", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
