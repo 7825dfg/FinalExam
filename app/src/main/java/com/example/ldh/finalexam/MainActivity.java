@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.MessageFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btn1, btn2, btn3, btn4;
@@ -170,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), ryear+" 년"+rmonth+" 월"+rday+" 일"+timePicker.getCurrentHour()+"시 "+timePicker.getCurrentMinute()+"분 예약완료", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), ryear+"년"+rmonth+"월"+rday+"일"+timePicker.getCurrentHour()+"시 "+timePicker.getCurrentMinute()+"분 예약완료", Toast.LENGTH_SHORT).show();
             }
         });
 
