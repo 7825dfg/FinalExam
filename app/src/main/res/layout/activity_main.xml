@@ -21,7 +21,7 @@
 
         <Switch
             android:text="예약시작"
-            android:layout_width="93dp"
+            android:layout_width="114dp"
             android:layout_height="wrap_content"
             android:id="@+id/Switch"
             android:layout_alignParentTop="true"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/Switch"
             android:layout_toRightOf="@+id/Switch"
-            android:id="@+id/chronometer2"
+            android:id="@+id/chronometer"
             android:layout_alignParentTop="true"
             android:layout_weight="1" />
     </LinearLayout>
@@ -41,7 +41,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/LL1">
 
 
 
@@ -130,29 +131,28 @@
             android:layout_weight="0.07">
 
             <RadioGroup
-                android:layout_width="170dp"
+                android:layout_width="202dp"
                 android:layout_height="wrap_content" >
 
                 <RadioButton
-                    android:text="RadioButton"
+                    android:text="기본할인(5% 할인)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/radioButton"
                     android:layout_weight="1" />
 
                 <RadioButton
-                    android:text="RadioButton"
+                    android:text="현금할인(10% 할인)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/radioButton2"
                     android:layout_weight="1" />
 
                 <RadioButton
-                    android:text="RadioButton"
-                    android:layout_width="wrap_content"
+                    android:text="MemberShip있음(20% 할인)"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radioButton3"
-                    android:layout_weight="1" />
+                    android:id="@+id/radioButton3" />
             </RadioGroup>
 
             <ImageView
