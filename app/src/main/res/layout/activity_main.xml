@@ -73,9 +73,9 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/editText1"
                 android:layout_weight="0.44" />
         </LinearLayout>
 
@@ -97,7 +97,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:ems="10"
                 android:id="@+id/editText2"
                 android:layout_weight="1" />
@@ -118,7 +118,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:ems="10"
                 android:id="@+id/editText3"
                 android:layout_weight="1" />
@@ -132,7 +132,8 @@
 
             <RadioGroup
                 android:layout_width="202dp"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:id="@+id/RadioGroup">
 
                 <RadioButton
                     android:text="기본할인(5% 할인)"
