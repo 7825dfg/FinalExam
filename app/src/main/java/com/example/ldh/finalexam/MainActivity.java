@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
     RadioButton rb1, rb2, rb3;
     ImageView imageView;
     EditText editText1, editText2, editText3;
+    TextView tview1, tview2, tview3;
     String num1, num2, num3;
-    double result;
+    double result, total;
+    int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         rb1 = (RadioButton)findViewById(R.id.radioButton);
         rb2 = (RadioButton)findViewById(R.id.radioButton2);
         rb3 = (RadioButton)findViewById(R.id.radioButton3);
+        tview1 = (TextView)findViewById(R.id.tView5);
+        tview2 = (TextView)findViewById(R.id.tView6);
+        tview3 = (TextView)findViewById(R.id.tView7);
 
         LL1.setVisibility(View.INVISIBLE);
 
@@ -96,12 +102,22 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "인원을 입력하세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                result = (Integer.parseInt(num1)*15000)+(Integer.parseInt(num2)*12000)+ (Integer.parseInt(num3)*8000);
+                total = (Integer.parseInt(num1)*15000)+(Integer.parseInt(num2)*12000)+ (Integer.parseInt(num3)*8000);
+                count = Integer.parseInt(num1)+Integer.parseInt(num2)+Integer.parseInt(num3);
 
                 if(rb1.isChecked()){
-                   result = result * 0.95;
+                   result = total * 0.95;
+                }
+                else if(rb2.isChecked()){
+                    result = total * 0.9;
+                }
+                else if (rb3.isChecked()){
+                    result = total * 0.8;
                 }
 
+                tview1.setText("총 명수 : "+count);
+                tview2.setText(String.format("할인금액 : %.0f", result));
+                tview3.setText(String.format("결제금액 : %.0f", total));
             }
         });
     }

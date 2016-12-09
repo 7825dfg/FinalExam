@@ -188,19 +188,19 @@
             android:layout_weight="0.07">
 
             <TextView
-                android:text="TextView"
+                android:text="총 명수 : "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tView5" />
 
             <TextView
-                android:text="TextView"
+                android:text="할인금액 : "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tView6" />
 
             <TextView
-                android:text="TextView"
+                android:text="결제금액 : "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tView7" />
