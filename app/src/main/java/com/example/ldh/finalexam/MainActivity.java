@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn1, btn2, btn3, btn4;
     Switch switch1;
-    LinearLayout LL1;
+    LinearLayout LL1, LL2;
     Chronometer Cmeter;
     RadioGroup radioGroup;
     RadioButton rb1, rb2, rb3;
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch1 = (Switch)findViewById(R.id.Switch);
         LL1 = (LinearLayout)findViewById(R.id.LL1);
+        LL2 = (LinearLayout)findViewById(R.id.LL2);
         Cmeter = (Chronometer)findViewById(R.id.chronometer);
         radioGroup = (RadioGroup)findViewById(R.id.RadioGroup);
         imageView = (ImageView)findViewById(R.id.imageView);
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         tview3 = (TextView)findViewById(R.id.tView7);
 
         LL1.setVisibility(View.INVISIBLE);
+        LL2.setVisibility(View.INVISIBLE);
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
