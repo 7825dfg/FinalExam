@@ -87,6 +87,13 @@ public class MainActivity extends AppCompatActivity {
                     Cmeter.setTextColor(Color.BLACK);
                     LL1.setVisibility(View.INVISIBLE);
                     LL2.setVisibility(View.INVISIBLE);
+                    tview1.setText("총 명수 :");
+                    tview2.setText("할인금액 : ");
+                    tview3.setText("결제금액 :");
+                    editText1.setText(null);
+                    editText2.setText(null);
+                    editText3.setText(null);
+                    rb1.setChecked(true);
                 }
             }
         });
@@ -172,9 +179,24 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), ryear+"년"+rmonth+"월"+rday+"일"+timePicker.getCurrentHour()+"시 "+timePicker.getCurrentMinute()+"분 예약완료", Toast.LENGTH_SHORT).show();
+                if(editText1.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "인원예약을 먼저하세요", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), ryear+"년"+rmonth+"월"+rday+"일"+timePicker.getCurrentHour()+"시 "+timePicker.getCurrentMinute()+"분 예약완료", Toast.LENGTH_SHORT).show();
+                    Cmeter.stop();
+                    Cmeter.setTextColor(Color.RED);
+                }
+
             }
         });
 
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LL1.setVisibility(View.VISIBLE);
+                LL2.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 }
